@@ -39,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cbvApp',
     'courseApp',
-    'rest_framework'
+    'rest_framework',
+    'django_filters'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 1,
-
+    'PAGE_SIZE': 1
 }
 
 MIDDLEWARE = [
