@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cbvApp import views
+from courseApp import views as c_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('students/', views.StudentList.as_view()),
     path('students/<int:pk>', views.StudentDetail.as_view()),
+    path('courses/', c_views.CourseList.as_view()),
+    path('courses/<int:pk>', c_views.CourseDetail.as_view()),
 ]
