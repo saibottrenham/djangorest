@@ -21,7 +21,7 @@ def find_flights(request):
 
 @api_view(['POST'])
 def save_reservation(request):
-    Reservation.objects.create(
+    reservation = Reservation.objects.create(
         flight=Flight.objects.get(id=request.data['flightId']),
         passenger=Passenger.objects.create(
             firstName=request.data['firstName'],
@@ -31,7 +31,7 @@ def save_reservation(request):
             phone=request.data['phone'],
         ),
     )
-    return Response(status=status.HTTP_201_CREATED)
+    return Response(status=status.HTTP_201_CREATED, data=ReservationSerializer(reservation).data)
 
 
 class FlightViewSet(viewsets.ModelViewSet):
